@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="dataAccessLayer.RealCustomer" table="REALCUSTOMER">
+        <id name="customerId" type="long" column="customer_id" >
+            <generator class="assigned"/>
+        </id>
+
+        <property name="firstName" type="java.lang.String">
+            <column name="first_name" sql-type="varchar(255)" />
+        </property>
+        <property name="lastName" type="java.lang.String">
+            <column name="last_name" sql-type="varchar(255)"/>
+        </property>
+        <property name="fatherName" type="java.lang.String">
+            <column name="father_name" sql-type="varchar(255)"/>
+        </property>
+        <property name="dateOfBirth" type="java.lang.String">
+            <column name="date_of_birth" sql-type="varchar(255)"/>
+        </property>
+        <property name="nationalCode" type="java.lang.String">
+            <column name="national_code" sql-type="varchar(255)"/>
+        </property>
+
+        <!-- <list name="">
+             <key></key>
+             <
+             <
+         </list>-->
+    </class>
+</hibernate-mapping>
