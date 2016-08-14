@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="dataAccessLayer.RealCustomer" table="REALCUSTOMER">
+    <class name="dataAccessLayer.RealCustomer" table="real_customer">
         <id name="customerId" type="long" column="customer_id" >
             <generator class="assigned"/>
         </id>
@@ -22,7 +22,7 @@
             <column name="date_of_birth" sql-type="varchar(255)"/>
         </property>
         <property name="nationalCode" type="java.lang.String">
-            <column name="national_code" sql-type="varchar(255)"/>
+            <column name="national_code" sql-type="varchar(255)" not-null="true" unique="true"/>
         </property>
 
         <!-- <list name="">

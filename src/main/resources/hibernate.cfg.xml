@@ -4,26 +4,21 @@
 
 <hibernate-configuration>
     <session-factory>
-        <property name="hibernate.dialect">
-            org.hibernate.dialect.MySQLDialect
-        </property>
-        <property name="hibernate.connection.driver_class">
-            com.mysql.jdbc.Driver
-        </property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
 
         <!-- Assume testproject4 is the database name -->
-        <property name="hibernate.connection.url">
-            jdbc:mysql://localhost/testproject4
-        </property>
-        <property name="hibernate.connection.username">
-            root
-        </property>
-        <property name="hibernate.connection.password">
-            root
-        </property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost/testproject4</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">root</property>
+        <property name="show_sql">true</property>
+        <!--<property name="hibernate.hbm2ddl.auto">create</property>-->
 
         <!-- List of XML mapping files -->
-        <!--<mapping resource="RealCustomer.hbm.xml"/>-->
+        <mapping resource="hbmFiles/RealCustomer.hbm.xml"/>
+        <mapping resource="hbmFiles/GrantCondition.hbm.xml"/>
+        <mapping resource="hbmFiles/LoanType.hbm.xml"/>
+
 
     </session-factory>
 </hibernate-configuration>

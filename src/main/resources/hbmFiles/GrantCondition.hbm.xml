@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping>
+    <class name="dataAccessLayer.GrantCondition" table="GRANTCONDITION">
+        <id name="grantId" column="grant_id">
+            <generator class="increment"/>
+        </id>
+        <property name="grantName" type="java.lang.String">
+            <column name="grant_name" sql-type="varchar(255)"/>
+        </property>
+        <property name="minAmount" type="java.math.BigDecimal">
+            <column name="min_amount" sql-type="decimal"/>
+        </property>
+        <property name="maxAmount" type="java.math.BigDecimal">
+            <column name="max_amount" sql-type="decimal"/>
+        </property>
+        <property name="minDuration" type="int">
+            <column name="min_duration" sql-type="int"/>
+        </property>
+        <property name="maxDuration" type="int">
+            <column name="max_duration" sql-type="int"/>
+        </property>
+
+
+        <many-to-one name="loanType" class="dataAccessLayer.LoanType" cascade="all">
+            <column name="loan_id"/>
+        </many-to-one>
+
+
+    </class>
+</hibernate-mapping>
+
