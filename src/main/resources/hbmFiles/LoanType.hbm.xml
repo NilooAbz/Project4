@@ -6,7 +6,7 @@
 <hibernate-mapping>
     <class name="dataAccessLayer.LoanType" table="loan_type">
         <id name="loanId"  type="java.lang.Long">
-            <column name="loan_id" sql-type="int(11)" unique="true"/>
+            <column name="loan_id" sql-type="int(11) " unique="true"/>
             <generator class="increment"/>
         </id>
         <property name="loanName" type="java.lang.String">

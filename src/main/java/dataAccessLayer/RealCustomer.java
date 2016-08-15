@@ -27,6 +27,9 @@ public class RealCustomer {
     public RealCustomer() {
     }
 
+    public RealCustomer allRealCustomer(){
+         return new RealCustomer(customerId, nationalCode, firstName, lastName, fatherName, dateOfBirth);
+    }
     public Long getCustomerId() {
         return customerId;
     }

@@ -1,0 +1,72 @@
+body{
+    /*background-color: darkkhaki;*/
+    background-image: url("../images/num3.png");
+    direction: rtl;
+    align-self: center;
+}
+
+.title{
+    margin-top: 90px;
+    margin-bottom: 50px;
+    margin-right: 350px;
+    margin-left: 350px;
+    border-style: groove;
+    border-radius: 15px;
+    text-align: center;
+    background-color: darkolivegreen;
+}
+
+.button{
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: black;
+    background-color: darkkhaki;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px darkolivegreen;
+}
+
+.main-box{
+
+    align-content: center;
+    text-align:center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 80px;
+    margin-left: 350px;
+    margin-right: 350px;
+    border-style: ridge;
+    border-radius: 15px;
+    text-align: center;
+    background-color: palegoldenrod;
+}
+
+p{
+    font-size: 20px;
+}
+
+
+table{
+    text-align: center;
+    align-items: center;
+    alignment: center;
+}
+
+form{
+    text-align: center;
+    align-items: center;
+    alignment: center;
+}
+/*
+.result-table {
+    height: 50px;
+    text-align: right;
+    vertical-align: middle;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}*/

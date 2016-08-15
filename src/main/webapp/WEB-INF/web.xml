@@ -4,4 +4,24 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+
+  <servlet>
+    <servlet-name>CreateRealCustomerServlet</servlet-name>
+    <servlet-class>presentationLayer.CreateRealCustomerServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SearchRealCustomerServlet</servlet-name>
+    <servlet-class>presentationLayer.SearchRealCustomerServlet</servlet-class>
+  </servlet>
+
+
+  <servlet-mapping>
+    <servlet-name>CreateRealCustomerServlet</servlet-name>
+    <url-pattern>/CreateRealCustomerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SearchRealCustomerServlet</servlet-name>
+    <url-pattern>/SearchRealCustomerServlet</url-pattern>
+  </servlet-mapping>
+
 </web-app>
