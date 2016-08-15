@@ -10,6 +10,10 @@ public class LoanFile {
     private Long loanFileId;
     private BigDecimal amount;
     private int duration;
+    private Long loanId;
+    private Long customerId;
+    private LoanType loanType;
+    private RealCustomer realCustomer;
 
     public LoanFile(Long loanFileId, BigDecimal amount, int duration) {
         this.loanFileId = loanFileId;
@@ -42,5 +46,37 @@ public class LoanFile {
 
     public void setDuration(int duration) {
         this.duration = duration;
+    }
+
+    public Long getLoanId() {
+        return loanId;
+    }
+
+    public void setLoanId(Long loanId) {
+        this.loanId = loanId;
+    }
+
+    public Long getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(Long customerId) {
+        this.customerId = customerId;
+    }
+
+    public LoanType getLoanType() {
+        return loanType;
+    }
+
+    public void setLoanType(LoanType loanType) {
+        this.loanType = loanType;
+    }
+
+    public RealCustomer getRealCustomer() {
+        return realCustomer;
+    }
+
+    public void setRealCustomer(RealCustomer realCustomer) {
+        this.realCustomer = realCustomer;
     }
 }

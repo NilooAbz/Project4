@@ -1,5 +1,7 @@
 package dataAccessLayer;
 
+import java.util.Set;
+
 /**
  * Created by DotinSchool2 on 8/14/2016.
  */
@@ -11,6 +13,7 @@ public class RealCustomer {
     private String lastName;
     private String fatherName;
     private String dateOfBirth;
+    private Set<LoanFile> loanFiles;
 
     public RealCustomer(Long customerId, String nationalCode, String firstName, String lastName, String fatherName, String dateOfBirth) {
         this.customerId = customerId;
@@ -70,5 +73,13 @@ public class RealCustomer {
 
     public void setDateOfBirth(String dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+
+    public Set<LoanFile> getLoanFiles() {
+        return loanFiles;
+    }
+
+    public void setLoanFiles(Set<LoanFile> loanFiles) {
+        this.loanFiles = loanFiles;
     }
 }

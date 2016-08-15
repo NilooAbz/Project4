@@ -76,6 +76,14 @@ public class GrantCondition {
         this.maxAmount = maxAmount;
     }
 
+    public Long getLoanId() {
+        return loanId;
+    }
+
+    public void setLoanId(Long loanId) {
+        this.loanId = loanId;
+    }
+
     public LoanType getLoanType() {
         return loanType;
     }

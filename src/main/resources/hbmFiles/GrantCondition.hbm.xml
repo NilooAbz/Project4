@@ -6,7 +6,8 @@
 
 <hibernate-mapping>
     <class name="dataAccessLayer.GrantCondition" table="GRANTCONDITION">
-        <id name="grantId" column="grant_id">
+        <id name="grantId" type="java.lang.Long">
+            <column name="grant_id" sql-type="int(11)" unique="true"/>
             <generator class="increment"/>
         </id>
         <property name="grantName" type="java.lang.String">
@@ -19,15 +20,15 @@
             <column name="max_amount" sql-type="decimal"/>
         </property>
         <property name="minDuration" type="int">
-            <column name="min_duration" sql-type="int"/>
+            <column name="min_duration" sql-type="int(11)"/>
         </property>
         <property name="maxDuration" type="int">
-            <column name="max_duration" sql-type="int"/>
+            <column name="max_duration" sql-type="int(11)"/>
         </property>
 
 
         <many-to-one name="loanType" class="dataAccessLayer.LoanType" cascade="all">
-            <column name="loan_id"/>
+            <column name="loan_id" unique="true"/>
         </many-to-one>
 
 

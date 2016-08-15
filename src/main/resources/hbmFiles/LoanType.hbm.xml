@@ -6,7 +6,7 @@
 <hibernate-mapping>
     <class name="dataAccessLayer.LoanType" table="loan_type">
         <id name="loanId"  type="java.lang.Long">
-            <column name="loan_id" sql-type="int"/>
+            <column name="loan_id" sql-type="int(11)" unique="true"/>
             <generator class="increment"/>
         </id>
         <property name="loanName" type="java.lang.String">
@@ -17,8 +17,16 @@
         </property>
 
         <set name="grantConditions" cascade="all">
-            <key column="loan_id"></key>
+            <!--<key column="loan_id" ></key>-->
+            <key>
+                <column name="loan_id" unique="true"/>
+            </key>
             <one-to-many class="dataAccessLayer.GrantCondition"/>
+        </set>
+
+        <set name="loanFiles" cascade="all">
+            <key column="loan_id" unique="true"></key>
+            <one-to-many class="dataAccessLayer.LoanFile"/>
         </set>
 
     </class>
