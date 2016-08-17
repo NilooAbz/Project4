@@ -21,6 +21,10 @@
     <servlet-name>UpdateRealCustomerServlet</servlet-name>
     <servlet-class>presentationLayer.UpdateRealCustomerServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>SaveRealCustomerServlet</servlet-name>
+    <servlet-class>presentationLayer.SaveRealCustomerServlet</servlet-class>
+  </servlet>
 
 
   <servlet-mapping>
@@ -38,6 +42,10 @@
   <servlet-mapping>
     <servlet-name>UpdateRealCustomerServlet</servlet-name>
     <url-pattern>/UpdateRealCustomerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SaveRealCustomerServlet</servlet-name>
+    <url-pattern>/SaveRealCustomerServlet</url-pattern>
   </servlet-mapping>
 
 </web-app>

@@ -63,4 +63,8 @@ public class RealCustomerLogic {
     public static void deleteById(Long customerId){
         RealCustomerCRUD.deleteRealById(customerId);
     }
+
+    public static List<RealCustomer> retrieveByCustomerId(Long customerId){
+        return RealCustomerCRUD.retrieveRealById(customerId);
+    }
 }

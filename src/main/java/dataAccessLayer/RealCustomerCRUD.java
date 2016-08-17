@@ -4,6 +4,7 @@ import org.hibernate.*;
 import org.hibernate.criterion.Restrictions;
 import util.HibernateUtil;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,16 +28,13 @@ public class RealCustomerCRUD {
     public static List<RealCustomer> retrieveRealCustomer(RealCustomer realCustomer) {
         List<RealCustomer> realCustomers;
         Session session = HibernateUtil.getSessionFactory().openSession();
-        //Query query = session.createQuery("from rc.customerId from RealCustomer rc");
 
         try {
 //            realCustomers = makeCriteria(session, realCustomer).list();
                 realCustomers = getFromDataBase(session, realCustomer);
-
         }finally {
             session.close();
         }
-
         return realCustomers;
     }
 
@@ -102,5 +100,30 @@ public class RealCustomerCRUD {
             } finally {
                 session.close();
             }
+    }
+
+    public static List retrieveRealById(Long customerId){
+        List<RealCustomer> realCustomer = new ArrayList<RealCustomer>();
+
+        Session session = HibernateUtil.getSessionFactory().openSession();
+//        try {
+//            Transaction tx = session.beginTransaction();
+//            //session.update(realCustomer);
+//            session.get(realCustomer, customerId);
+//            tx.commit();
+//            } finally {
+//                session.close();
+//            }
+
+        try{
+            Query query = session.createQuery("from RealCustomer rc where rc.customerId = :cId");
+            query.setParameter("cId" ,customerId);
+            realCustomer = query.list();
+        }
+
+        finally {
+            session.close();
+        }
+        return realCustomer;
     }
 }

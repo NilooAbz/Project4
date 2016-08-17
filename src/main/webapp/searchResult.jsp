@@ -20,6 +20,7 @@
 <div class=main-box>
     <br>
     <br>
+    <form method="post"
     <%
         int count = 0;
         ArrayList<RealCustomer> realCustomerObjects = (ArrayList<RealCustomer>) request.getAttribute("realCustomers");
