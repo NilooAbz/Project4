@@ -18,16 +18,10 @@
 
         <set name="grantConditions" cascade="all">
             <key>
-                <!--<column name="loan_id" unique="true"/>-->
                 <column name="grant_id" unique="true"/>
             </key>
             <one-to-many class="dataAccessLayer.GrantCondition"/>
         </set>
-
-        <!--<set name="loanFiles" cascade="all">-->
-            <!--<key column="loan_id" unique="true"></key>-->
-            <!--<one-to-many class="dataAccessLayer.LoanFile"/>-->
-        <!--</set>-->
 
     </class>
 </hibernate-mapping>

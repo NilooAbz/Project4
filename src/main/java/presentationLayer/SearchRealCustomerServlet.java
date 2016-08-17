@@ -24,12 +24,11 @@ public class SearchRealCustomerServlet extends HttpServlet {
 
         realCustomer.setFirstName(request.getParameter("firstName"));
         realCustomer.setLastName(request.getParameter("lastName"));
-        Long custoemrId = Long.valueOf(request.getParameter("customerId"));
-        if ( custoemrId == null && custoemrId.equals("")){
-            realCustomer.setCustomerId(null);
-        }
-        //realCustomer.setCustomerId(Long.parseLong(request.getParameter("customerId")));
         realCustomer.setNationalCode(request.getParameter("nationalCode"));
+        String customerId = request.getParameter("customerId");
+        if ( customerId != null && !customerId.equals("")){
+            realCustomer.setCustomerId(Long.parseLong(customerId));
+        }
 
         List<RealCustomer> realCustomers = RealCustomerLogic.retrieve(realCustomer);
         request.setAttribute("realCustomers", realCustomers);
