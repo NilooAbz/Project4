@@ -13,6 +13,14 @@
     <servlet-name>SearchRealCustomerServlet</servlet-name>
     <servlet-class>presentationLayer.SearchRealCustomerServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>DeleteRealCustomerServlet</servlet-name>
+    <servlet-class>presentationLayer.DeleteRealCustomerServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>UpdateRealCustomerServlet</servlet-name>
+    <servlet-class>presentationLayer.UpdateRealCustomerServlet</servlet-class>
+  </servlet>
 
 
   <servlet-mapping>
@@ -22,6 +30,14 @@
   <servlet-mapping>
     <servlet-name>SearchRealCustomerServlet</servlet-name>
     <url-pattern>/SearchRealCustomerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DeleteRealCustomerServlet</servlet-name>
+    <url-pattern>/DeleteRealCustomerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>UpdateRealCustomerServlet</servlet-name>
+    <url-pattern>/UpdateRealCustomerServlet</url-pattern>
   </servlet-mapping>
 
 </web-app>

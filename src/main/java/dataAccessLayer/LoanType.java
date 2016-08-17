@@ -12,7 +12,7 @@ public class LoanType {
     private String loanName;
     private Long loanId;
     private Set<GrantCondition> grantConditions;
-    private Set<LoanFile> loanFiles;
+    //private Set<LoanFile> loanFiles;
 
     public LoanType(double interestRate, String loanName, Long loanId) {
         this.interestRate = interestRate;
@@ -21,6 +21,10 @@ public class LoanType {
     }
 
     public LoanType() {
+    }
+
+    public LoanType(Long loanId) {
+        this.loanId = loanId;
     }
 
     public double getInterestRate() {
@@ -55,13 +59,13 @@ public class LoanType {
         this.grantConditions = grantConditions;
     }
 
-    public Set<LoanFile> getLoanFiles() {
-        return loanFiles;
-    }
-
-    public void setLoanFiles(Set<LoanFile> loanFiles) {
-        this.loanFiles = loanFiles;
-    }
+//    public Set<LoanFile> getLoanFiles() {
+//        return loanFiles;
+//    }
+//
+//    public void setLoanFiles(Set<LoanFile> loanFiles) {
+//        this.loanFiles = loanFiles;
+//    }
 }
 
 

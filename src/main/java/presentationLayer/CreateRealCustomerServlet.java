@@ -5,6 +5,7 @@ import exceptions.EmptyFieldException;
 import exceptions.WrongNationalCodeFormatException;
 import logicLayer.RealCustomerLogic;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,25 +32,33 @@ public class CreateRealCustomerServlet extends HttpServlet {
 
         try {
             RealCustomerLogic.create(realCustomer);
-            request.setAttribute("عملیات موفق", "header");
-            request.setAttribute("اطلاعات مشتری ذخیره شد.", "text");
-            request.setAttribute("realCustomerManagement.html", "url");
-
+            request.setAttribute("header", "عملیات موفق");
+            request.setAttribute("text","اطلاعات مشتری ذخیره شد.");
+            request.setAttribute("url", "realCustomerManagement.html");
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/info.jsp");
+            dispatcher.forward(request , response);
 
         } catch (EmptyFieldException e) {
             request.setAttribute("header","عملیات ناموفق");
             request.setAttribute("text","خطا در ثبت مشتری جدیدایجاد شده است." + "\n" + e.getMessage());
-            request.setAttribute("realCustomerManagement.html", "url");
+            request.setAttribute("url", "realCustomerManagement.html");
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/info.jsp");
+            dispatcher.forward(request , response);
+
         } catch (WrongNationalCodeFormatException e) {
             request.setAttribute("header","عملیات ناموفق");
             request.setAttribute("text","خطا در ثبت مشتری جدیدایجاد شده است." + "\n" + e.getMessage());
-            request.setAttribute("realCustomerManagement.html", "url");
+            request.setAttribute("url", "realCustomerManagement.html");
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/info.jsp");
+            dispatcher.forward(request , response);
+        } catch (Exception e) {
+            request.setAttribute("header","عملیات ناموفق");
+            request.setAttribute("text","خطا در ثبت مشتری جدیدایجاد شده است." + "\n" + e.getMessage());
+            request.setAttribute("url", "realCustomerManagement.html");
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/info.jsp");
+            dispatcher.forward(request , response);
         }
 
-
-
-//        response.setContentType("text/html; charset=UTF-8");
-//        response.setCharacterEncoding("UTF-8");
 
     }
 }

@@ -8,13 +8,12 @@ import java.math.BigDecimal;
 public class GrantCondition {
 
     private Long grantId;
-    private Long loanId;
     private String grantName;
     private int minDuration;
     private int maxDuration;
     private BigDecimal minAmount;
     private BigDecimal maxAmount;
-    private LoanType loanType;
+    private Long loanId;
 
     public GrantCondition(Long grantId, String grantName, int minDuration, int maxDuration, BigDecimal minAmount, BigDecimal maxAmount) {
         this.grantId = grantId;
@@ -26,6 +25,10 @@ public class GrantCondition {
     }
 
     public GrantCondition() {
+    }
+
+    public GrantCondition(Long grantId) {
+        this.grantId = grantId;
     }
 
     public Long getGrantId() {
@@ -84,11 +87,20 @@ public class GrantCondition {
         this.loanId = loanId;
     }
 
-    public LoanType getLoanType() {
-        return loanType;
-    }
 
-    public void setLoanType(LoanType loanType) {
-        this.loanType = loanType;
-    }
+    //    public Long getLoanId() {
+//        return loanId;
+//    }
+//
+//    public void setLoanId(Long loanId) {
+//        this.loanId = loanId;
+//    }
+//
+//    public LoanType getLoanType() {
+//        return loanType;
+//    }
+//
+//    public void setLoanType(LoanType loanType) {
+//        this.loanType = loanType;
+//    }
 }

@@ -13,7 +13,7 @@ public class RealCustomer {
     private String lastName;
     private String fatherName;
     private String dateOfBirth;
-    private Set<LoanFile> loanFiles;
+//    private Set<LoanFile> loanFiles;
 
     public RealCustomer(Long customerId, String nationalCode, String firstName, String lastName, String fatherName, String dateOfBirth) {
         this.customerId = customerId;
@@ -78,11 +78,11 @@ public class RealCustomer {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public Set<LoanFile> getLoanFiles() {
-        return loanFiles;
-    }
-
-    public void setLoanFiles(Set<LoanFile> loanFiles) {
-        this.loanFiles = loanFiles;
-    }
+//    public Set<LoanFile> getLoanFiles() {
+//        return loanFiles;
+//    }
+//
+//    public void setLoanFiles(Set<LoanFile> loanFiles) {
+//        this.loanFiles = loanFiles;
+//    }
 }

@@ -13,7 +13,8 @@ import java.util.List;
  */
 public class RealCustomerLogic {
 
-    public static void create(RealCustomer realCustomer) throws EmptyFieldException, WrongNationalCodeFormatException {
+    public static void create(RealCustomer realCustomer)
+            throws EmptyFieldException, WrongNationalCodeFormatException, Exception {
 
         validateRealCustomer(realCustomer);
         RealCustomerCRUD.saveRealCustomer(realCustomer.allRealCustomer());
@@ -53,14 +54,13 @@ public class RealCustomerLogic {
                 }
             }
         }
-
     }
 
-    public static ArrayList<RealCustomer> retrieve(RealCustomer realCustomer){
+    public static List<RealCustomer> retrieve(RealCustomer realCustomer){
+        return RealCustomerCRUD.retrieveRealCustomer(realCustomer);
+    }
 
-        /*ArrayList<RealCustomer> realCustomers = RealCustomerCRUD.retrieveRealCustomer(realCustomer);
-        return realCustomer;*/
-        ArrayList<RealCustomer> realCustomers = new ArrayList<RealCustomer>();
-        return realCustomers;
+    public static void deleteById(Long customerId){
+        RealCustomerCRUD.deleteRealById(customerId);
     }
 }
