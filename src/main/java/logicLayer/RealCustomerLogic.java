@@ -74,14 +74,14 @@ public class RealCustomerLogic {
 
         validateRealCustomer(realCustomer);
 
-        //List<RealCustomer> customerByNationalCode = RealCustomerCRUD.findByNationalCode(realCustomer);
-        List<RealCustomer> customerByNationalCode = RealCustomerCRUD.retrieveRealCustomer(realCustomer);
+        List<RealCustomer> customerByNationalCode = RealCustomerCRUD.findByNationalCode(realCustomer.getNationalCode());
+
         if (customerByNationalCode.size() > 0){
-//            for (RealCustomer rc : customerByNationalCode){
-//                if (!rc.getNationalCode().equals(realCustomer.getNationalCode())){
+            for (RealCustomer realC : customerByNationalCode){
+                if (!realC.getCustomerId().equals(realCustomer.getCustomerId())){
                     throw new DuplicateDataException("کد ملی وارد شده تکراری می باشد.");
-//                }
-//            }
+                }
+            }
         }
         RealCustomerCRUD.updateCustomer(realCustomer);
     }

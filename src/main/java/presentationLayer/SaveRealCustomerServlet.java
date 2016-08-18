@@ -42,19 +42,19 @@ public class SaveRealCustomerServlet extends HttpServlet {
         } catch (WrongNationalCodeFormatException e) {
             request.setAttribute("header","عملیات ناموفق");
             request.setAttribute("text","خطا در اصلاح مشتری ایجاد شده است." + "\n" + e.getMessage());
-            request.setAttribute("url", "updateRealCustomer.html");
+            request.setAttribute("url", "searchRealCustomer.html");
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/info.jsp");
             dispatcher.forward(request , response);
         } catch (EmptyFieldException e) {
             request.setAttribute("header","عملیات ناموفق");
             request.setAttribute("text","خطا در اصلاح مشتری شده است." + "\n" + e.getMessage());
-            request.setAttribute("url", "updateRealCustomer.html");
+            request.setAttribute("url", "searchRealCustomer.html");
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/info.jsp");
             dispatcher.forward(request , response);
         } catch (DuplicateDataException e) {
             request.setAttribute("header","عملیات ناموفق");
             request.setAttribute("text","خطا در اصلاح مشتری ایجاد شده است." + "\n" + e.getMessage());
-            request.setAttribute("url", "updateRealCustomer.html");
+            request.setAttribute("url", "searchRealCustomer.html");
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/info.jsp");
             dispatcher.forward(request , response);
         }

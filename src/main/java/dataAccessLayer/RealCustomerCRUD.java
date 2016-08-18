@@ -139,9 +139,18 @@ public class RealCustomerCRUD {
             }
     }
 
-//    public static List findByNationalCode(RealCustomer realCustomer){
-//        List<RealCustomer> realCustomers = retrieveRealCustomer(realCustomer);
-//
-//        return realCustomers;
-//    }
+    public static List findByNationalCode(String nationalCode){
+        List<RealCustomer> realCustomers = new ArrayList<RealCustomer>();
+
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            Query query = session.createQuery("from RealCustomer  rc where rc.nationalCode = :nationalC");
+            query.setParameter("nationalC" , nationalCode);
+            realCustomers = query.list();
+            } finally {
+                session.close();
+            }
+
+        return realCustomers;
+    }
 }
