@@ -126,4 +126,22 @@ public class RealCustomerCRUD {
         }
         return realCustomer;
     }
+
+    public static void updateCustomer(RealCustomer realCustomer){
+
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            Transaction tx = session.beginTransaction();
+            session.update(realCustomer);
+            tx.commit();
+            } finally {
+                session.close();
+            }
+    }
+
+//    public static List findByNationalCode(RealCustomer realCustomer){
+//        List<RealCustomer> realCustomers = retrieveRealCustomer(realCustomer);
+//
+//        return realCustomers;
+//    }
 }

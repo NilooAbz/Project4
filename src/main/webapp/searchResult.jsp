@@ -20,7 +20,7 @@
 <div class=main-box>
     <br>
     <br>
-    <form method="post"
+    <form method="post">
     <%
         int count = 0;
         ArrayList<RealCustomer> realCustomerObjects = (ArrayList<RealCustomer>) request.getAttribute("realCustomers");
@@ -88,6 +88,7 @@
     <h3>مشتری با مشخصات وارد شده وجود ندارد!</h3>
     <%}%>
     <a href=searchRealCustomer.html class=form>بازگشت به صفحه قبل</a>
+    </form>
 </div>
 </body>
 </html>

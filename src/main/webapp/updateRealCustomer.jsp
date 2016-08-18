@@ -22,34 +22,33 @@
 <div class=main-box>
     <br>
     <form action="/SaveRealCustomerServlet" method="post">
-        <%--<input type="hidden" name="action" value="confirm-update">--%>
         <p>اطلاعات مشتری حقیقی :</p>
         <br>
-        <%ArrayList<RealCustomer> realCustomerObject = (ArrayList<RealCustomer>) request.getAttribute("realCustomers"); %>
+            <%RealCustomer realCustomerObject = (RealCustomer) request.getAttribute("realCustomers"); %>
         <table>
             <tr>
                 <td>شماره مشتری</td>
-                <td><input type='text' name='customerId' value="<%=realCustomerObject.get(0)%>"
+                <td><input type='text' name='customerId' value="<%=realCustomerObject.getCustomerId()%>"
                            readonly></td>
             </tr>
             <tr>
                 <td> نام</td>
-                <td><input type='text' name='firstName' value="<%=realCustomerObject.get(1)%>"></td>
+                <td><input type='text' name='firstName' value="<%=realCustomerObject.getFirstName()%>"></td>
             </tr>
             <td> نام خانوادگی</td>
-            <td><input type='text' name='lastName' value="<%=realCustomerObject.get(2)%>"></td>
+            <td><input type='text' name='lastName' value="<%=realCustomerObject.getLastName()%>"></td>
             </tr>
             <td> نام پدر</td>
-            <td><input type='text' name='fatherName' value="<%=realCustomerObject.get(3)%>"></td>
+            <td><input type='text' name='fatherName' value="<%=realCustomerObject.getFatherName()%>"></td>
             </tr>
             <tr>
                 <td> تاریخ تولد</td>
-                <td><input type='text' name='dateOfBirth' value="<%=realCustomerObject.get(4)%>">
+                <td><input type='text' name='dateOfBirth' value="<%=realCustomerObject.getDateOfBirth()%>">
                 </td>
             </tr>
             <tr>
                 <td>کد ملی</td>
-                <td><input type='text' name='nationalCode' value="<%=realCustomerObject.get(5)%>"></td>
+                <td><input type='text' name='nationalCode' value="<%=realCustomerObject.getNationalCode()%>"></td>
             </tr>
         </table>
         <input type='submit' class='button' value='ذخیره تغییرات'>

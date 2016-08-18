@@ -2,6 +2,7 @@ package logicLayer;
 
 import dataAccessLayer.RealCustomer;
 import dataAccessLayer.RealCustomerCRUD;
+import exceptions.DuplicateDataException;
 import exceptions.EmptyFieldException;
 import exceptions.WrongNationalCodeFormatException;
 
@@ -66,5 +67,22 @@ public class RealCustomerLogic {
 
     public static List<RealCustomer> retrieveByCustomerId(Long customerId){
         return RealCustomerCRUD.retrieveRealById(customerId);
+    }
+
+    public static void updateRealCustomer(RealCustomer realCustomer) throws
+            WrongNationalCodeFormatException, EmptyFieldException, DuplicateDataException {
+
+        validateRealCustomer(realCustomer);
+
+        //List<RealCustomer> customerByNationalCode = RealCustomerCRUD.findByNationalCode(realCustomer);
+        List<RealCustomer> customerByNationalCode = RealCustomerCRUD.retrieveRealCustomer(realCustomer);
+        if (customerByNationalCode.size() > 0){
+//            for (RealCustomer rc : customerByNationalCode){
+//                if (!rc.getNationalCode().equals(realCustomer.getNationalCode())){
+                    throw new DuplicateDataException("کد ملی وارد شده تکراری می باشد.");
+//                }
+//            }
+        }
+        RealCustomerCRUD.updateCustomer(realCustomer);
     }
 }
