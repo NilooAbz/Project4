@@ -86,21 +86,4 @@ public class GrantCondition {
     public void setLoanId(Long loanId) {
         this.loanId = loanId;
     }
-
-
-    //    public Long getLoanId() {
-//        return loanId;
-//    }
-//
-//    public void setLoanId(Long loanId) {
-//        this.loanId = loanId;
-//    }
-//
-//    public LoanType getLoanType() {
-//        return loanType;
-//    }
-//
-//    public void setLoanType(LoanType loanType) {
-//        this.loanType = loanType;
-//    }
 }

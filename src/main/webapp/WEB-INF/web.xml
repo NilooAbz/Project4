@@ -25,6 +25,14 @@
     <servlet-name>SaveRealCustomerServlet</servlet-name>
     <servlet-class>presentationLayer.SaveRealCustomerServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>createLoanTypeServlet</servlet-name>
+    <servlet-class>presentationLayer.createLoanTypeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>GrantConditionServlet</servlet-name>
+    <servlet-class>presentationLayer.GrantConditionServlet</servlet-class>
+  </servlet>
 
 
   <servlet-mapping>
@@ -46,6 +54,14 @@
   <servlet-mapping>
     <servlet-name>SaveRealCustomerServlet</servlet-name>
     <url-pattern>/SaveRealCustomerServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>createLoanTypeServlet</servlet-name>
+    <url-pattern>/createLoanTypeServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GrantConditionServlet</servlet-name>
+    <url-pattern>/GrantConditionServlet</url-pattern>
   </servlet-mapping>
 
 </web-app>
