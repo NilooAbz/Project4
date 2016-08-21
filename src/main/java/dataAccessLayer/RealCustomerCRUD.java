@@ -1,5 +1,6 @@
 package dataAccessLayer;
 
+import exceptions.EmptyFieldException;
 import org.hibernate.*;
 import org.hibernate.criterion.Restrictions;
 import util.HibernateUtil;
@@ -102,7 +103,8 @@ public class RealCustomerCRUD {
             }
     }
 
-    public static List retrieveRealById(Long customerId){
+    public static List retrieveRealById(Long customerId)
+            throws EmptyFieldException {
         List<RealCustomer> realCustomer = new ArrayList<RealCustomer>();
 
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -119,8 +121,10 @@ public class RealCustomerCRUD {
             Query query = session.createQuery("from RealCustomer rc where rc.customerId = :cId");
             query.setParameter("cId" ,customerId);
             realCustomer = query.list();
+            if (realCustomer.size() == 0){
+                throw new EmptyFieldException("مشتری با شماره " + customerId + "وجود ندارد.");
+            }
         }
-
         finally {
             session.close();
         }

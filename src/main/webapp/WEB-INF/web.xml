@@ -27,11 +27,15 @@
   </servlet>
   <servlet>
     <servlet-name>createLoanTypeServlet</servlet-name>
-    <servlet-class>presentationLayer.createLoanTypeServlet</servlet-class>
+    <servlet-class>presentationLayer.CreateLoanTypeServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>GrantConditionServlet</servlet-name>
     <servlet-class>presentationLayer.GrantConditionServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CreateLoanFileServlet</servlet-name>
+    <servlet-class>presentationLayer.CreateLoanFileServlet</servlet-class>
   </servlet>
 
 
@@ -62,6 +66,10 @@
   <servlet-mapping>
     <servlet-name>GrantConditionServlet</servlet-name>
     <url-pattern>/GrantConditionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CreateLoanFileServlet</servlet-name>
+    <url-pattern>/CreateLoanFileServlet</url-pattern>
   </servlet-mapping>
 
 </web-app>

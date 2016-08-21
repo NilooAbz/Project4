@@ -1,5 +1,6 @@
 package presentationLayer;
 
+import dataAccessLayer.GrantCondition;
 import dataAccessLayer.LoanType;
 import exceptions.EmptyFieldException;
 import logicLayer.LoanTypeLogic;
@@ -10,17 +11,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Created by DotinSchool2 on 8/20/2016.
  */
-public class createLoanTypeServlet extends HttpServlet {
+public class CreateLoanTypeServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setCharacterEncoding("UTF8");
 
         String loanName = request.getParameter("loanName");
         Double interestRate = Double.parseDouble(request.getParameter("interestRate"));
+
+        //ArrayList<GrantCondition> grantConditions = request.getParameter("grantConditions");
 
         try {
             LoanType loanType = LoanTypeLogic.create(loanName,interestRate);

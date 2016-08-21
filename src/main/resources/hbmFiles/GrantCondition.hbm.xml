@@ -5,7 +5,7 @@
 
 
 <hibernate-mapping>
-    <class name="dataAccessLayer.GrantCondition" table="GRANTCONDITION">
+    <class name="dataAccessLayer.GrantCondition" table="grant_condition">
         <id name="grantId" type="java.lang.Long">
             <column name="grant_id" sql-type="int(11)" unique="true"/>
             <generator class="increment"/>

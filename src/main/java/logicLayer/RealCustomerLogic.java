@@ -65,7 +65,8 @@ public class RealCustomerLogic {
         RealCustomerCRUD.deleteRealById(customerId);
     }
 
-    public static List<RealCustomer> retrieveByCustomerId(Long customerId){
+    public static List<RealCustomer> retrieveByCustomerId(Long customerId)
+            throws EmptyFieldException {
         return RealCustomerCRUD.retrieveRealById(customerId);
     }
 

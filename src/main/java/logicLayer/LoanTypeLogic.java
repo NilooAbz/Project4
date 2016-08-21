@@ -4,6 +4,9 @@ import dataAccessLayer.LoanType;
 import dataAccessLayer.LoanTypeCRUD;
 import exceptions.EmptyFieldException;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by DotinSchool2 on 8/20/2016.
  */
@@ -23,5 +26,10 @@ public class LoanTypeLogic {
             throw new EmptyFieldException("وارد کردن نرخ سود الزامی است.");
         }
         return new LoanType(loanName, interestRate);
+    }
+
+    public static List<LoanType> retrieveAll()
+            throws EmptyFieldException {
+        return LoanTypeCRUD.retrieveAllLoanTypes();
     }
 }

@@ -10,6 +10,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/Style.css">
+    <script type="text/javascript" src="showTable.js"></script>
     <title>تعریف شروط اعطا</title>
 </head>
 <div class=title>
@@ -66,7 +67,12 @@
     <br>
     <hr>
     <br>
-
+    <form action="/GrantConditionServlet" method="get">
+        <input type="hidden" name="loanName" value="<%= request.getParameter("loanName")%>">
+        <input type="hidden" name="interestRate" value="<%= request.getParameter("interestRate")%>">
+        <table class="result-table" id="GrantConditionShowTable"></table>
+        <br>
+    </form>
 </div>
 </body>
 </html>

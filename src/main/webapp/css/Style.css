@@ -8,8 +8,8 @@ body{
 .title{
     margin-top: 90px;
     margin-bottom: 50px;
-    margin-right: 350px;
-    margin-left: 350px;
+    margin-right: 250px;
+    margin-left: 250px;
     border-style: groove;
     border-radius: 15px;
     text-align: center;
@@ -38,8 +38,8 @@ body{
     align-items: center;
     margin-top: 10px;
     margin-bottom: 80px;
-    margin-left: 350px;
-    margin-right: 350px;
+    margin-left: 250px;
+    margin-right: 250px;
     border-style: ridge;
     border-radius: 15px;
     text-align: center;
@@ -61,6 +61,24 @@ form{
     text-align: center;
     align-items: center;
     alignment: center;
+}
+.result-table
+{
+    width: 80%;
+}
+.result-table th
+{
+    height: 50px;
+    text-align: right;
+    vertical-align: middle;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    width: 50px;
+    align-content: center;
+}
+.result-table td
+{
+    border-bottom: 1px solid #ddd;
 }
 /*
 .result-table {

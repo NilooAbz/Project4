@@ -26,12 +26,5 @@
             <column name="national_code" sql-type="varchar(255)" not-null="true" unique="true"/>
         </property>
 
-        <!--<set name="loanFiles" cascade="all">-->
-            <!--<key>-->
-                <!--<column name="customer_id" unique="true"/>-->
-            <!--</key>-->
-            <!--<one-to-many class="dataAccessLayer.LoanFile"/>-->
-        <!--</set>-->
-
     </class>
 </hibernate-mapping>

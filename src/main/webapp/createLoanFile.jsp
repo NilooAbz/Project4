@@ -8,9 +8,36 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <meta charset="UTF-8">
+    <link href="css/Style.css" rel="stylesheet">
+    <title>پرونده تسهیلاتی</title>
 </head>
 <body>
+<div class="title">
+    <h1>پرونده تسهیلاتی</h1>
+</div>
 
+<div class=main-box>
+    <br>
+    <br>
+    <form action="/CreateLoanFileServlet" >
+        <input type="text" name="action" value="retrieveCustomerLoanType" hidden>
+        <table>
+            <tr>
+                <td>شماره مشتری</td>
+                <td><input type="text" name="customerId" value="<%=request.getAttribute("customerId")%>"></td>
+                <td><input class="button" type="submit" value="بازیابی"></td>
+                <td><a href="realCustomerManagement.html" class="form">بازگشت به صفحه قبل</a></td>
+            </tr>
+        </table>
+        <br>
+        <br>
+        <br>
+        <% int customerExistence = (int)request.getAttribute("customerExistence");%>
+        <c:choose>
+
+        </c:choose>
+    </form>
+</div>
 </body>
 </html>
