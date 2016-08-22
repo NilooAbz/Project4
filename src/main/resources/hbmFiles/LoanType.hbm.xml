@@ -18,9 +18,10 @@
 
         <set name="grantConditions" cascade="all">
             <key>
-                <column name="grant_id" unique="true"/>
+                <!--foreign key to which colomn in grant-->
+                <column name="loan_id" unique="true"/>
             </key>
-            <one-to-many class="dataAccessLayer.GrantCondition"/>
+            <one-to-many class="dataAccessLayer.GrantCondition" />
         </set>
 
     </class>

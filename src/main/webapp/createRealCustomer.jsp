@@ -1,13 +1,14 @@
-<!DOCTYPE html>
-<html lang="fa">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<html>
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/Style.css">
+    <link href="css/Style.css" rel="stylesheet">
+    <script type="text/javascript" src="checkNationalCode.js"></script>
     <title>ثبت مشتری حقیقی</title>
 </head>
 
 <body>
-
 <div class="title">
     <br>
     <h1>ثبت مشتری حقیقی</h1>
@@ -38,7 +39,8 @@
             </tr>
             <tr>
                 <td>کد ملی</td>
-                <td><input type="text" name="nationalCode"></td>
+                <td><input type="text" name="nationalCode" id="nationalCode"
+                           onsubmit="return checkMelliCode(document.getElementById('nationalCode')).value()"></td>
             </tr>
         </table>
         <input type="submit" class="button" value="ثبت اطلاعات">

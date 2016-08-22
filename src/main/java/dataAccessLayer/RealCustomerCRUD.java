@@ -103,9 +103,8 @@ public class RealCustomerCRUD {
             }
     }
 
-    public static List retrieveRealById(Long customerId)
+    public static RealCustomer retrieveRealById(Long customerId)
             throws EmptyFieldException {
-        List<RealCustomer> realCustomer = new ArrayList<RealCustomer>();
 
         Session session = HibernateUtil.getSessionFactory().openSession();
 //        try {
@@ -116,19 +115,19 @@ public class RealCustomerCRUD {
 //            } finally {
 //                session.close();
 //            }
-
         try{
             Query query = session.createQuery("from RealCustomer rc where rc.customerId = :cId");
             query.setParameter("cId" ,customerId);
-            realCustomer = query.list();
-            if (realCustomer.size() == 0){
+            List<RealCustomer> result = query.list();
+            if (result.isEmpty()){
                 throw new EmptyFieldException("مشتری با شماره " + customerId + "وجود ندارد.");
+            }else {
+                return result.get(0);
             }
         }
         finally {
             session.close();
         }
-        return realCustomer;
     }
 
     public static void updateCustomer(RealCustomer realCustomer){

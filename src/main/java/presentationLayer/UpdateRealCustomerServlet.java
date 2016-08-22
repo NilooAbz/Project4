@@ -1,6 +1,7 @@
 package presentationLayer;
 
 import dataAccessLayer.RealCustomer;
+import exceptions.EmptyFieldException;
 import logicLayer.RealCustomerLogic;
 
 import javax.servlet.RequestDispatcher;
@@ -23,15 +24,14 @@ public class UpdateRealCustomerServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
         Long customerId = Long.valueOf(request.getParameter("customerId"));
 
-        List<RealCustomer> realCustomers = RealCustomerLogic.retrieveByCustomerId(customerId);
-
         RealCustomer realCustomer = new RealCustomer();
-
-        for(Object object : realCustomers) {
-            realCustomer = (RealCustomer) object;
+        try {
+            realCustomer = RealCustomerLogic.retrieveByCustomerId(customerId);
+        } catch (EmptyFieldException e) {
+            e.printStackTrace();
         }
 
-        request.setAttribute("realCustomers", realCustomer);
+        request.setAttribute("realCustomer", realCustomer);
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/updateRealCustomer.jsp");
         dispatcher.forward(request, response);
     }

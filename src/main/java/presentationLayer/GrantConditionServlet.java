@@ -13,6 +13,9 @@ import javax.transaction.NotSupportedException;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Created by DotinSchool2 on 8/20/2016.
@@ -28,7 +31,7 @@ public class GrantConditionServlet extends HttpServlet {
         Double interestRate = Double.parseDouble(request.getParameter("interestRate"));
 
         int rowNumber = Integer.parseInt(request.getParameter("rowNumber"));
-        ArrayList<GrantCondition> grantConditions = new ArrayList<GrantCondition>();
+        Set<GrantCondition> grantConditions = new HashSet<GrantCondition>();
 
         for (int i = 1; i < rowNumber - 1; i++) {
             GrantCondition grantConditionObject = new GrantCondition();

@@ -45,8 +45,8 @@ public class RealCustomerLogic {
             else{
                 String national = realCustomer.getNationalCode().trim();
                 int sum = 0;
-                for (int i=1; i<=9; i++){
-                    sum = sum + Integer.parseInt(national.substring(i-1, i )) * i;
+                for (int i=10; i>=2; i--){
+                    sum = sum + Integer.parseInt(national.substring(10-i, 11-i )) * i;
                 }
                 int rightNumber = Integer.parseInt(national.substring(9));
                 int remainder = sum % 11;
@@ -65,7 +65,7 @@ public class RealCustomerLogic {
         RealCustomerCRUD.deleteRealById(customerId);
     }
 
-    public static List<RealCustomer> retrieveByCustomerId(Long customerId)
+    public static RealCustomer retrieveByCustomerId(Long customerId)
             throws EmptyFieldException {
         return RealCustomerCRUD.retrieveRealById(customerId);
     }

@@ -25,6 +25,8 @@
         <property name="maxDuration" type="int">
             <column name="max_duration" sql-type="int(11)"/>
         </property>
+
+        <!-- foreign key to loan type-->
         <property name="loanId" type="java.lang.Long">
             <column name="loan_id" sql-type="int(11)"/>
         </property>

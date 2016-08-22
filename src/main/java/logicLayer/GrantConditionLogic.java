@@ -3,23 +3,26 @@ package logicLayer;
 import dataAccessLayer.GrantCondition;
 import dataAccessLayer.GrantConditionCRUD;
 import dataAccessLayer.LoanType;
+import exceptions.EmptyFieldException;
 
 import javax.transaction.NotSupportedException;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Created by DotinSchool2 on 8/21/2016.
  */
 public class GrantConditionLogic {
 
-    public static void create( LoanType loanType, ArrayList<GrantCondition> grantConditions)
+    public static void create( LoanType loanType, Set<GrantCondition> grantConditions)
             throws NotSupportedException {
 
         validateGrantConditions(grantConditions);
         GrantConditionCRUD.saveLoanType(loanType, grantConditions);
     }
 
-    private static void validateGrantConditions(ArrayList<GrantCondition> grantConditions)
+    private static void validateGrantConditions(Set<GrantCondition> grantConditions)
             throws NotSupportedException {
 
         for(GrantCondition grantConditionObject : grantConditions){
@@ -30,6 +33,13 @@ public class GrantConditionLogic {
                 throw new NotSupportedException("حداکثر مبلغ قرارداد باید بزرگتر از حداقل مبلغ قرارداد باشد.");
             }
         }
+    }
+
+    public static List<GrantCondition> retrieveConditionsByLoanId(Long loanId)
+            throws EmptyFieldException {
+
+        return GrantConditionCRUD.retrieveLoanTypeConditions(loanId);
+
     }
 }
 

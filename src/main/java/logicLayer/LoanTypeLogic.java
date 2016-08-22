@@ -32,4 +32,9 @@ public class LoanTypeLogic {
             throws EmptyFieldException {
         return LoanTypeCRUD.retrieveAllLoanTypes();
     }
+
+    public static LoanType retrieve(Long loanId)
+            throws EmptyFieldException {
+        return LoanTypeCRUD.retrieveLoanTypeById(loanId);
+    }
 }

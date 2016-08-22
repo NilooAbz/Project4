@@ -24,7 +24,7 @@
     <form action="/SaveRealCustomerServlet" method="post">
         <p>اطلاعات مشتری حقیقی :</p>
         <br>
-            <%RealCustomer realCustomerObject = (RealCustomer) request.getAttribute("realCustomers"); %>
+            <%RealCustomer realCustomerObject = (RealCustomer) request.getAttribute("realCustomer"); %>
         <table>
             <tr>
                 <td>شماره مشتری</td>

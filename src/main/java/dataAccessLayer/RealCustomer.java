@@ -30,6 +30,10 @@ public class RealCustomer {
     public RealCustomer allRealCustomer(){
          return new RealCustomer(customerId, nationalCode, firstName, lastName, fatherName, dateOfBirth);
     }
+
+    public String getFullName(){
+        return this.firstName + " " + this.lastName;
+    }
     public Long getCustomerId() {
         return customerId;
     }

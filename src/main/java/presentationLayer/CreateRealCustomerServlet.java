@@ -41,20 +41,20 @@ public class CreateRealCustomerServlet extends HttpServlet {
         } catch (EmptyFieldException e) {
             request.setAttribute("header","عملیات ناموفق");
             request.setAttribute("text","خطا در ثبت مشتری جدیدایجاد شده است." + "\n" + e.getMessage());
-            request.setAttribute("url", "createRealCustomer.html");
+            request.setAttribute("url", "createRealCustomer.jsp");
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/info.jsp");
             dispatcher.forward(request , response);
 
         } catch (WrongNationalCodeFormatException e) {
             request.setAttribute("header","عملیات ناموفق");
             request.setAttribute("text","خطا در ثبت مشتری جدیدایجاد شده است." + "\n" + e.getMessage());
-            request.setAttribute("url", "createRealCustomer.html");
+            request.setAttribute("url", "createRealCustomer.jsp");
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/info.jsp");
             dispatcher.forward(request , response);
         } catch (Exception e) {
             request.setAttribute("header","عملیات ناموفق");
             request.setAttribute("text","خطا در ثبت مشتری جدیدایجاد شده است." + "\n" + e.getMessage());
-            request.setAttribute("url", "realCustomerManagement.html");
+            request.setAttribute("url", "realCustomerManagement.jsp");
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/info.jsp");
             dispatcher.forward(request , response);
         }

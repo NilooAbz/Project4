@@ -80,11 +80,10 @@ form{
 {
     border-bottom: 1px solid #ddd;
 }
-/*
-.result-table {
-    height: 50px;
-    text-align: right;
-    vertical-align: middle;
-    padding: 15px;
-    border-bottom: 1px solid #ddd;
-}*/
+
+select
+{
+    width: 100%;
+    font-family: farsiFont;
+    alignment: left;
+}
