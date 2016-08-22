@@ -17,11 +17,11 @@
         </property>
 
         <many-to-one name="loanType" class="dataAccessLayer.LoanType" cascade="all">
-            <column name="loan_id" unique="true"/>
+            <column name="loan_id" />
         </many-to-one>
 
         <many-to-one name="realCustomer" class="dataAccessLayer.RealCustomer" cascade="all">
-            <column name="customer_id" unique="true"/>
+            <column name="customer_id" />
         </many-to-one>
 
     </class>

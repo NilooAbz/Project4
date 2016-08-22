@@ -57,7 +57,7 @@ public class CreateLoanFileServlet extends HttpServlet {
         }
     }
 
-    public void createLoanFile(HttpServletRequest request, HttpServletResponse response){
+    public void createLoanFile(HttpServletRequest request, HttpServletResponse response) {
 
         try {
             Long customerId = Long.parseLong(request.getParameter("RequestedCustomerId"));
@@ -65,43 +65,26 @@ public class CreateLoanFileServlet extends HttpServlet {
             LoanFile loanFile = new LoanFile();
             loanFile.setAmount(new BigDecimal(request.getParameter("amount")));
             loanFile.setDuration(Integer.parseInt(request.getParameter("duration")));
-            LoanFileLogic.create(customerId,loanId,loanFile);
+            LoanFileLogic.create(customerId, loanId, loanFile);
 
-            request.setAttribute("header","عملیات موفق");
-            request.setAttribute("text","پرونده تسهیلاتی با موفقیت ثبت شد.");
-            request.setAttribute("url","CreateLoanFileServlet?action=firstRun");
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/info.jsp");
+            request.setAttribute("header", "عملیات موفق");
+            request.setAttribute("text", "پرونده تسهیلاتی با موفقیت ثبت شد.");
+
+        } catch (NotSupportedConditionRangeException e) {
+            request.setAttribute("header", "عملیات ناموفق");
+            request.setAttribute("text", "خطا در ثبت پرونده تسهیلاتی جدیدایجاد شده است." + "\n" + e.getMessage());
+
+        } finally {
             try {
-                dispatcher.forward(request,response);
+                request.setAttribute("url", "CreateLoanFileServlet?action=firstRun");
+                getServletConfig().getServletContext().getRequestDispatcher("/info.jsp").forward(request, response);
             } catch (ServletException e) {
                 e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
             }
 
-        } catch (NotSupportedConditionRangeException e) {
-            request.setAttribute("header","عملیات ناموفق");
-            request.setAttribute("text","خطا در ثبت پرونده تسهیلاتی جدیدایجاد شده است." + "\n" + e.getMessage());
-            request.setAttribute("url","CreateLoanFileServlet?action=firstRun");
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/info.jsp");
-            try {
-                dispatcher.forward(request,response);
-            } catch (ServletException e1) {
-                e1.printStackTrace();
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
         }
-//        finally {
-//            try {
-//                request.setAttribute("url","CreateLoanFileServlet?action=firstRun");
-//                getServletConfig().getServletContext().getRequestDispatcher("/info.jsp").forward(request,response);
-//            } catch (ServletException e) {
-//                e.printStackTrace();
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-
     }
 
     public void firstRun(HttpServletRequest request, HttpServletResponse response){

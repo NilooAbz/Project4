@@ -45,7 +45,7 @@ public class LoanFileLogic {
             if( loanFile.getDuration() > grantConditionObject.getMaxDuration() || loanFile.getDuration() < grantConditionObject.getMinDuration()){
                 throw new NotSupportedConditionRangeException("مدت زمان وارد شده در محدوده مدت زمان های شرایط تسهیلات صدق نمی کند! لطفا دوباره تلاش کنید.");
             }
-            if( loanFile.getAmount().compareTo(new BigDecimal(grantConditionObject.getMaxDuration()))==1  || loanFile.getAmount().compareTo(new BigDecimal(grantConditionObject.getMinDuration()))==-1 ){
+            if( loanFile.getAmount().compareTo(grantConditionObject.getMaxAmount())==1  || loanFile.getAmount().compareTo(grantConditionObject.getMinAmount())==-1 ){
                 throw new NotSupportedConditionRangeException("مبلغ وارد شده در محدوده مبلغ های شرایط تسهیلات صدق نمی کند! لطفا دوباره تلاش کنید.");
             }
         }

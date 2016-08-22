@@ -2,6 +2,7 @@ package dataAccessLayer;
 
 import exceptions.EmptyFieldException;
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
@@ -32,22 +33,29 @@ public class GrantConditionCRUD {
             }
     }
 
-    public static List<GrantCondition> retrieveLoanTypeConditions(Long loanId) throws EmptyFieldException {
-        //GrantCondition conditions;
+    public static List<GrantCondition> retrieveLoanTypeConditions(Long loanId)
+            throws EmptyFieldException {
+
         List<GrantCondition> grantConditions;
+//
+//        Session session = HibernateUtil.getSessionFactory().openSession();
+//        try {
+//            Criteria criteria =session.createCriteria(GrantCondition.class);
+//            criteria.add(Restrictions.eq("loanType.loanId", loanId));
+//            grantConditions = criteria.list();
+//
+//            if (grantConditions.isEmpty()){
+//                throw new EmptyFieldException("خطا در بازیابی شروط اعطا!");
+//            }
+//            } finally {
+//                session.close();
+//            }
 
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
-            Criteria criteria =session.createCriteria(GrantCondition.class);
-            criteria.add(Restrictions.eq("loanType.loanId", loanId));
-            grantConditions = criteria.list();
-           // conditions = session.get(GrantCondition.class, loanId);
-            //for (GrantCondition grantList: grantConditions) {
-            //    grantList =
-            //}
-            if (grantConditions.isEmpty()){
-                throw new EmptyFieldException("خطا در بازیابی شروط اعطا!");
-            }
+            Query query = session.createQuery("from GrantCondition gc where gc.loanId =:lId");
+            query.setParameter("lId", loanId);
+            grantConditions = query.list();
             } finally {
                 session.close();
             }
