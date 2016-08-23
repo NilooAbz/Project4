@@ -15,14 +15,23 @@ import java.util.List;
 public class RealCustomerLogic {
 
     public static void create(RealCustomer realCustomer)
-            throws EmptyFieldException, WrongNationalCodeFormatException, Exception {
+            throws EmptyFieldException, WrongNationalCodeFormatException, Exception, DuplicateDataException {
 
         validateRealCustomer(realCustomer);
+        List<RealCustomer> customerByNationalCode = RealCustomerCRUD.findByNationalCode(realCustomer.getNationalCode());
+        if (customerByNationalCode.size() > 0){
+            for (RealCustomer realC : customerByNationalCode){
+                if (!realC.getCustomerId().equals(realCustomer.getCustomerId())){
+                    throw new DuplicateDataException("کد ملی وارد شده تکراری می باشد.");
+                }
+            }
+        }
         RealCustomerCRUD.saveRealCustomer(realCustomer.allRealCustomer());
     }
 
     public static void validateRealCustomer(RealCustomer realCustomer)
             throws EmptyFieldException, WrongNationalCodeFormatException {
+        String melliCode = realCustomer.getNationalCode().trim();
 
         if (realCustomer.getFirstName().equals("")){
             throw new EmptyFieldException("لطفا فیلد نام را وارد کنید.");
@@ -39,7 +48,9 @@ public class RealCustomerLogic {
         if (realCustomer.getNationalCode().equals("")){
             throw new EmptyFieldException("لطفا فیلد کد ملی را وارد کنید.");
         }else {
-            if (realCustomer.getNationalCode().trim().length() != 10){
+            if (melliCode.length() != 10 || !melliCode.equals("1111111111") || !melliCode.equals("2222222222") || !melliCode.equals("3333333333")
+                    || !melliCode.equals("4444444444") || !melliCode.equals("5555555555") || !melliCode.equals("6666666666")
+                    || !melliCode.equals("7777777777") || !melliCode.equals("8888888888") || !melliCode.equals("9999999999") || !melliCode.equals("0000000000")){
                 throw new WrongNationalCodeFormatException("کد ملی باید ده رقمی باشد.");
             }
             else{
@@ -74,9 +85,7 @@ public class RealCustomerLogic {
             WrongNationalCodeFormatException, EmptyFieldException, DuplicateDataException {
 
         validateRealCustomer(realCustomer);
-
         List<RealCustomer> customerByNationalCode = RealCustomerCRUD.findByNationalCode(realCustomer.getNationalCode());
-
         if (customerByNationalCode.size() > 0){
             for (RealCustomer realC : customerByNationalCode){
                 if (!realC.getCustomerId().equals(realCustomer.getCustomerId())){

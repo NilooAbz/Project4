@@ -19,7 +19,7 @@
     <br>
     <p>لطفا اطلاعات زیر را تکمیل فرمایید </p>
     <br>
-    <form action="/CreateRealCustomerServlet" method="post">
+    <form action="/CreateRealCustomerServlet" method="post"  onsubmit="return checkMelliCode(document.getElementById('nationalCode')).value()">
         <table>
             <tr>
                 <td> نام</td>
@@ -40,10 +40,10 @@
             <tr>
                 <td>کد ملی</td>
                 <td><input type="text" name="nationalCode" id="nationalCode"
-                           onsubmit="return checkMelliCode(document.getElementById('nationalCode')).value()"></td>
+                           ></td>
             </tr>
         </table>
-        <input type="submit" class="button" value="ثبت اطلاعات">
+        <input type="submit"  class="button" value="ثبت اطلاعات">
         <br><br>
         <a href="realCustomerManagement.html" class="form" >بازگشت به صفحه قبل </a>
     </form>

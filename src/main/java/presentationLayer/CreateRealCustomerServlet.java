@@ -1,6 +1,7 @@
 package presentationLayer;
 
 import dataAccessLayer.RealCustomer;
+import exceptions.DuplicateDataException;
 import exceptions.EmptyFieldException;
 import exceptions.WrongNationalCodeFormatException;
 import logicLayer.RealCustomerLogic;
@@ -54,7 +55,13 @@ public class CreateRealCustomerServlet extends HttpServlet {
         } catch (Exception e) {
             request.setAttribute("header","عملیات ناموفق");
             request.setAttribute("text","خطا در ثبت مشتری جدیدایجاد شده است." + "\n" + e.getMessage());
-            request.setAttribute("url", "realCustomerManagement.jsp");
+            request.setAttribute("url", "createRealCustomer.jsp");
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/info.jsp");
+            dispatcher.forward(request , response);
+        } catch (DuplicateDataException e) {
+            request.setAttribute("header","عملیات ناموفق");
+            request.setAttribute("text","خطا در ثبت مشتری جدیدایجاد شده است." + "\n" + e.getMessage());
+            request.setAttribute("url", "createRealCustomer.jsp");
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/info.jsp");
             dispatcher.forward(request , response);
         }

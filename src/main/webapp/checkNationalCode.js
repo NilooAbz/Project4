@@ -29,14 +29,14 @@ function checkMelliCode(varmellicode) {
         r = n - parseInt(n / 11) * 11;
         if ((r == 0 && r == c) || (r == 1 && c == 1) || (r > 1 && c == 11 - r)) {
             return true;
-        }
-        else {
+        } else {
             alert("کد ملی صحیح نمی باشد");
             objcode.focus();
-            return true;
+            return false;
         }
     }
     else {
-        return true;
+        alert("کد ملی باید ده رقمی باشد.");
+        return false;
     }
 }
