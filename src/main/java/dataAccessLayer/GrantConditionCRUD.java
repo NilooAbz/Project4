@@ -1,14 +1,13 @@
 package dataAccessLayer;
 
+import exceptions.DataNotFoundException;
 import exceptions.EmptyFieldException;
-import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.criterion.Restrictions;
 import util.HibernateUtil;
+import util.LoggerUtil;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -17,24 +16,24 @@ import java.util.Set;
  */
 public class GrantConditionCRUD {
 
-    public static void saveLoanType(LoanType loanType, Set<GrantCondition> grantConditions){
+    public static void saveLoanType(LoanType loanType, Set<GrantCondition> grantConditions) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         try {
             Transaction tx = session.beginTransaction();
             loanType.setGrantConditions(grantConditions);
             session.save(loanType);
             tx.commit();
-            }
-        catch (Exception e){
+            LoggerUtil.getLogger().info("Loan Type id #" + loanType.getLoanId() + " with interest rate " + loanType.getInterestRate() + " successfully created in data base!");
+        } catch (RuntimeException e) {
+            LoggerUtil.getLogger().info("Creating Loan Type id #" + loanType.getLoanId() + " with interest rate " + loanType.getInterestRate() + " failed!");
             e.printStackTrace();
+        } finally {
+            session.close();
         }
-        finally {
-                session.close();
-            }
     }
 
     public static List<GrantCondition> retrieveLoanTypeConditions(Long loanId)
-            throws EmptyFieldException {
+            throws EmptyFieldException, DataNotFoundException {
 
         List<GrantCondition> grantConditions;
 //
@@ -56,9 +55,14 @@ public class GrantConditionCRUD {
             Query query = session.createQuery("from GrantCondition gc where gc.loanId =:lId");
             query.setParameter("lId", loanId);
             grantConditions = query.list();
-            } finally {
-                session.close();
-            }
+            LoggerUtil.getLogger().info("Grant condition(s) successfully retrieved from data base!");
+        } catch (RuntimeException e) {
+            LoggerUtil.getLogger().info("retrieving grant condition(s) from data base failed!");
+            e.printStackTrace();
+            throw new DataNotFoundException("خطا در بازیابی شروط اعطا!");
+        } finally {
+            session.close();
+        }
         return grantConditions;
     }
 

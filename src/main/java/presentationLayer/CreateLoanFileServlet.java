@@ -3,6 +3,7 @@ package presentationLayer;
 import dataAccessLayer.LoanFile;
 import dataAccessLayer.LoanType;
 import dataAccessLayer.RealCustomer;
+import exceptions.DataNotFoundException;
 import exceptions.EmptyFieldException;
 import exceptions.NotSupportedConditionRangeException;
 import logicLayer.LoanFileLogic;
@@ -74,6 +75,9 @@ public class CreateLoanFileServlet extends HttpServlet {
             request.setAttribute("header", "عملیات ناموفق");
             request.setAttribute("text", "خطا در ثبت پرونده تسهیلاتی جدیدایجاد شده است." + "\n" + e.getMessage());
 
+        } catch (DataNotFoundException e) {
+            request.setAttribute("header", "عملیات ناموفق");
+            request.setAttribute("text", "خطا در ثبت پرونده تسهیلاتی جدیدایجاد شده است." + "\n" + e.getMessage());
         } finally {
             try {
                 request.setAttribute("url", "CreateLoanFileServlet?action=firstRun");

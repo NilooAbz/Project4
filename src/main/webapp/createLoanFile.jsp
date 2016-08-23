@@ -71,11 +71,11 @@
             </tr>
             <tr>
                 <td> مدت قرارداد</td>
-                <td><input type="text" name="duration"></td>
+                <td><input type="text" name="duration" required="required" oninvalid="alert('وارد کردن مدت قرارداد الزامی است')"></td>
             </tr>
             <tr>
                 <td> مبلغ قرارداد</td>
-                <td><input type="text" name="amount"></td>
+                <td><input type="text" name="amount" required="required" oninvalid="alert('وارد کردن  مبلغ قرارداد الزامی است')"></td>
             </tr>
         </table>
         <input class="button" type="submit" value="ثبت">

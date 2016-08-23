@@ -5,6 +5,15 @@
     <meta charset="UTF-8">
     <link href="css/Style.css" rel="stylesheet">
     <script type="text/javascript" src="checkNationalCode.js"></script>
+    <script type="text/javascript">
+        function validate() {
+
+            if (checkMelliCode(document.getElementById('nationalCode')).value){
+                document.forms[0].submit();
+            }
+
+        }
+    </script>
     <title>ثبت مشتری حقیقی</title>
 </head>
 
@@ -19,7 +28,7 @@
     <br>
     <p>لطفا اطلاعات زیر را تکمیل فرمایید </p>
     <br>
-    <form action="/CreateRealCustomerServlet" method="post"  onsubmit="return checkMelliCode(document.getElementById('nationalCode')).value()">
+    <form action="/CreateRealCustomerServlet" method="post">
         <table>
             <tr>
                 <td> نام</td>
@@ -43,7 +52,7 @@
                            ></td>
             </tr>
         </table>
-        <input type="submit"  class="button" value="ثبت اطلاعات">
+        <input type="button"  class="button" value="ثبت اطلاعات" onclick="validate()">
         <br><br>
         <a href="realCustomerManagement.html" class="form" >بازگشت به صفحه قبل </a>
     </form>

@@ -27,7 +27,7 @@ function checkMelliCode(varmellicode) {
             parseInt(melliCode.charAt(7)) * 3 +
             parseInt(melliCode.charAt(8)) * 2;
         r = n - parseInt(n / 11) * 11;
-        if ((r == 0 && r == c) || (r == 1 && c == 1) || (r > 1 && c == 11 - r)) {
+        if ((r == 0 && r == c) || (r == 1 && c == 1) || (r > 1 && c == 11 - r) || (r > 1 && c == r)) {
             return true;
         } else {
             alert("کد ملی صحیح نمی باشد");

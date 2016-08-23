@@ -3,6 +3,7 @@ package logicLayer;
 import dataAccessLayer.GrantCondition;
 import dataAccessLayer.GrantConditionCRUD;
 import dataAccessLayer.LoanType;
+import exceptions.DataNotFoundException;
 import exceptions.EmptyFieldException;
 
 import javax.transaction.NotSupportedException;
@@ -36,7 +37,7 @@ public class GrantConditionLogic {
     }
 
     public static List<GrantCondition> retrieveConditionsByLoanId(Long loanId)
-            throws EmptyFieldException {
+            throws EmptyFieldException, DataNotFoundException {
 
         return GrantConditionCRUD.retrieveLoanTypeConditions(loanId);
 

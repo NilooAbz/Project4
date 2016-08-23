@@ -2,6 +2,7 @@ package logicLayer;
 
 import dataAccessLayer.RealCustomer;
 import dataAccessLayer.RealCustomerCRUD;
+import exceptions.DataNotFoundException;
 import exceptions.DuplicateDataException;
 import exceptions.EmptyFieldException;
 import exceptions.WrongNationalCodeFormatException;
@@ -48,9 +49,9 @@ public class RealCustomerLogic {
         if (realCustomer.getNationalCode().equals("")){
             throw new EmptyFieldException("لطفا فیلد کد ملی را وارد کنید.");
         }else {
-            if (melliCode.length() != 10 || !melliCode.equals("1111111111") || !melliCode.equals("2222222222") || !melliCode.equals("3333333333")
-                    || !melliCode.equals("4444444444") || !melliCode.equals("5555555555") || !melliCode.equals("6666666666")
-                    || !melliCode.equals("7777777777") || !melliCode.equals("8888888888") || !melliCode.equals("9999999999") || !melliCode.equals("0000000000")){
+            if (melliCode.length() != 10 || melliCode.equals("1111111111") || melliCode.equals("2222222222") || melliCode.equals("3333333333")
+                    || melliCode.equals("4444444444") || melliCode.equals("5555555555") || melliCode.equals("6666666666")
+                    || melliCode.equals("7777777777") || melliCode.equals("8888888888") || melliCode.equals("9999999999") || melliCode.equals("0000000000")){
                 throw new WrongNationalCodeFormatException("کد ملی باید ده رقمی باشد.");
             }
             else{
@@ -68,7 +69,7 @@ public class RealCustomerLogic {
         }
     }
 
-    public static List<RealCustomer> retrieve(RealCustomer realCustomer){
+    public static List<RealCustomer> retrieve(RealCustomer realCustomer) throws DataNotFoundException {
         return RealCustomerCRUD.retrieveRealCustomer(realCustomer);
     }
 

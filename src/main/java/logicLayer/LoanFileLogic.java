@@ -1,6 +1,7 @@
 package logicLayer;
 
 import dataAccessLayer.*;
+import exceptions.DataNotFoundException;
 import exceptions.EmptyFieldException;
 import exceptions.NotSupportedConditionRangeException;
 
@@ -22,7 +23,7 @@ public class LoanFileLogic {
         return LoanTypeLogic.retrieve(loanId);
     }
     public static void create(Long customerId, Long loanId, LoanFile loanFile)
-            throws NotSupportedConditionRangeException {
+            throws NotSupportedConditionRangeException, DataNotFoundException {
 
         try {
             LoanType loanType = retrieveLoanType(loanId);
@@ -38,7 +39,7 @@ public class LoanFileLogic {
     }
 
     public static void validateLoanFile(LoanFile loanFile, Long loanId)
-            throws NotSupportedConditionRangeException, EmptyFieldException {
+            throws NotSupportedConditionRangeException, EmptyFieldException, DataNotFoundException {
 
         List<GrantCondition> grantConditionObjects = GrantConditionLogic.retrieveConditionsByLoanId(loanId);
         for(GrantCondition grantConditionObject : grantConditionObjects){

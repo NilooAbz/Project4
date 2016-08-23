@@ -1,6 +1,7 @@
 package presentationLayer;
 
 import dataAccessLayer.RealCustomer;
+import exceptions.DataNotFoundException;
 import logicLayer.RealCustomerLogic;
 
 import javax.servlet.RequestDispatcher;
@@ -30,10 +31,16 @@ public class SearchRealCustomerServlet extends HttpServlet {
             realCustomer.setCustomerId(Long.parseLong(customerId));
         }
 
-        List<RealCustomer> realCustomers = RealCustomerLogic.retrieve(realCustomer);
-        request.setAttribute("realCustomers", realCustomers);
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/searchResult.jsp");
-        dispatcher.forward(request , response);
+        List<RealCustomer> realCustomers = null;
+        try {
+            realCustomers = RealCustomerLogic.retrieve(realCustomer);
+            request.setAttribute("realCustomers", realCustomers);
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/searchResult.jsp");
+            dispatcher.forward(request , response);
+        } catch (DataNotFoundException e) {
+            e.printStackTrace();
+        }
+
 
     }
 }
